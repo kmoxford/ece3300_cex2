@@ -11,21 +11,14 @@ module adder4(
 	      input [3:0]      a,
 	      input [3:0]      b,
 	      output [4:0] result);
-wire carry0;
-wire carry1;
-wire carry2;
-wire carry3;
-
+	
+	wire [2:0] carry;
    
 // add your code here -- you must use four instances of the full adder "fulladd", defined below
-fulladd addc0
-	(.x(a[0]), .y(b[0]), .cin(1'b0), .sum(result[0]), .cout(carry0));
-fulladd addc1
-	(.x(a[1]), .y(b[1]), .cin(carry0), .sum(result[1]), .cout(carry1));
-fulladd addc2
-	(.x(a[2]), .y(b[2]), .cin(carry1), .sum(result[2]), .cout(carry2));
-fulladd addc3
-	(.x(a[3]), .y(b[3]), .cin(carry2), .sum(result[3]), .cout(carry3));
+	fulladd v1 (a[0], b[0], 1'b0, result[0], carry[0]);
+	fulladd v2 (a[1], b[1], carry[0], result[1], carry[1]);
+	fulladd v3 (a[2], b[2], carry[1], result[2], carry[2]);
+	fulladd v4 (a[3], b[3], carry[2], result[3], carry[3]);
 
 endmodule
 
