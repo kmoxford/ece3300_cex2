@@ -18,7 +18,7 @@ module adder4(
 	fulladd v1 (a[0], b[0], 1'b0, result[0], carry[0]);
 	fulladd v2 (a[1], b[1], carry[0], result[1], carry[1]);
 	fulladd v3 (a[2], b[2], carry[1], result[2], carry[2]);
-	fulladd v4 (a[3], b[3], carry[2], result[3], carry[3]);
+	fulladd v4 (a[3], b[3], carry[2], result[3], result[4]);
 
 endmodule
 
